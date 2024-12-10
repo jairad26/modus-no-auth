@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	_ "github.com/hypermodeinc/modus/sdk/go"
+	"github.com/hypermodeinc/modus/sdk/go/pkg/console"
 )
 
 func SayHello(name *string) string {
@@ -16,4 +18,9 @@ func SayHello(name *string) string {
 	}
 
 	return fmt.Sprintf("Hello, %s!", s)
+}
+
+func GetAuthClaims() (string, error) {
+	console.Log(os.Getenv("CLAIMS"))
+	return "foo", nil
 }
